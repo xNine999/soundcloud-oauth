@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        window.onload = function() {
+            // Get the 'code' parameter from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const authCode = urlParams.get("code");
+
+            if (authCode) {
+                // Redirect back to your Android app via deep linking
+                window.location.href = "allmusicplayer://soundcloud/callback?code=" + authCode;
+            } else {
+                document.body.innerHTML = "<h2>Authorization failed</h2>";
+            }
+        };
+    </script>
+</head>
+<body>
+    <h2>Redirecting...</h2>
+</body>
+</html>
